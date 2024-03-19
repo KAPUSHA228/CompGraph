@@ -12,7 +12,7 @@ namespace WinFormsApp1
         {
             byte constanta = 20;
             Color sourceColor = sourceImage.GetPixel(x, y);
-            Color resultColor = Color.FromArgb(Clamp(sourceColor.R+constanta, 0, 255),
+            Color resultColor = Color.FromArgb(Clamp(sourceColor.R + constanta, 0, 255),
                                                Clamp(sourceColor.G + constanta, 0, 255),
                                                Clamp(sourceColor.B + constanta, 0, 255));
             return resultColor;

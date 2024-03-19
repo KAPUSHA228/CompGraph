@@ -113,5 +113,11 @@ namespace WinFormsApp1
             Filters filter = new Sharpness();
             backgroundWorker1.RunWorkerAsync(filter);
         }
+
+        private void òèñíåíèåToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new EmbossingFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }
