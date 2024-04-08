@@ -13,6 +13,7 @@ namespace WinFormsApp1
         private void îòêğûòüToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Çàãğóçèòü êàğòèíêó";
             // ofd.Filter = "Image files | *.png *.bmp *.jpg | All files (*.*) | *.*";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
@@ -21,14 +22,21 @@ namespace WinFormsApp1
                 pictureBox1.Refresh();
             }
         }
+        private void ñîõğàíèòüToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Title = "Ñîõğàíèòü êàğòèíêó";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                try { image1.Save(sfd.FileName, System.Drawing.Imaging.ImageFormat.Jpeg); }
+                catch { MessageBox.Show("Gavno"); }
+            }
+        }
 
         private void èíâåğñèÿToolStripMenuItem_Click(object sender, EventArgs e)
         {
             InvertFilter filter = new InvertFilter();
             backgroundWorker1.RunWorkerAsync(filter);
-            /* Bitmap resultImage = filter.processImage(image2, backgroundWorker1);
-              pictureBox1.Image = resultImage;
-              pictureBox1.Refresh();*/
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -117,6 +125,60 @@ namespace WinFormsApp1
         private void òèñíåíèåToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Filters filter = new EmbossingFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void ìåäèàííûéToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new MedianFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void âîëíû1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new Wave1();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void âîëíû2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new Wave2();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void ïîâîğîòToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new Rotate();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void øàğğàToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new SharrFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void ïğşèòòàToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new PruitFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void äâèæåíèåToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new MotionBlur();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void ñäâèãToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new Move();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void ñòåêëîToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new GlassFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
     }

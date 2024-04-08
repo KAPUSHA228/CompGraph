@@ -10,7 +10,7 @@ namespace WinFormsApp1
     {
         protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
         {
-            byte k = 8;
+            byte k = 40;
             Color sourceColor = sourceImage.GetPixel(x, y);
             int intensity = (int)(0.36 * sourceColor.R + 0.53 * sourceColor.G + 0.11 * sourceColor.B);
             Color resultColor = Color.FromArgb(Clamp(intensity+2*k,0,255), 
